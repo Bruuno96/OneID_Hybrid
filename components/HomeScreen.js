@@ -1,175 +1,161 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, Image, ImageBackground, TouchableOpacity } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Feather';
-import { LinearGradient } from 'expo-linear-gradient';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Text, View, StyleSheet, StatusBar, Image, TouchableOpacity } from 'react-native';
 import { Switch } from 'react-native-elements';
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
-} from "react-native-chart-kit";
-import { Dimensions } from "react-native";
+import LineChart from "react-native-chart-kit";
 
 export default function HomeScreen() {
   return (
-    <View style={{ flex: 1, flexDirection:'column' }}>
-    <StatusBar animated={true} backgroundColor="white"/>
+    <View style={{ flex: 1, flexDirection: 'column' }}>
+      <StatusBar animated={true} backgroundColor="white" />
 
-    <View style={{backgroundColor:'white', flex:0.26}}>
-        
-        <View style={{flexDirection:'row', flex:1}}>
+      <View style={{ backgroundColor: 'white', flex: 0.26 }}>
 
-              <View style={{flex:0.7, justifyContent:'center', marginLeft:30, marginTop:15}}>
-                  <Image
-                    source={require('../assets/perfil.jpg')}
-                    style={{height:70, width: 70, borderRadius:30}}
-                  />
-                  <Text style={{marginTop:10, fontSize:15, fontWeight:'bold'}}>Olá, Bruno</Text>
-              </View>
-              
-              <View style={{flex:0.3,  justifyContent:'center',marginTop:15, marginLeft:15}}>
+        <View style={{ flexDirection: 'row', flex: 1 }}>
 
-                  <Image
-                    source={require('../assets/eyes_hidden.png')}
-                    style={{height:30, width: 30, borderRadius:30, marginLeft:30, marginBottom:60}}
-                  />              
-              
-              </View>
+          <View style={{ flex: 0.7, justifyContent: 'center', marginLeft: 30, marginTop: 15 }}>
+            <Image
+              source={require('../assets/perfil.jpg')}
+              style={{ height: 70, width: 70, borderRadius: 30 }}
+            />
+            <Text style={{ marginTop: 10, fontSize: 15, fontWeight: 'bold' }}>Olá, Bruno</Text>
+          </View>
+
+          <View style={{ flex: 0.3, justifyContent: 'center', marginTop: 15, marginLeft: 15 }}>
+
+            <Image
+              source={require('../assets/eyes_hidden.png')}
+              style={{ height: 30, width: 30, borderRadius: 30, marginLeft: 30, marginBottom: 60 }}
+            />
+
+          </View>
         </View>
 
-    
-    </View>
-    
 
-    <View style={{backgroundColor:'white', flex:0.55, flexDirection:'column'}}>
-        
-        <View style={{flexDirection:'column', flex:1}}>
+      </View>
 
-          <View style={{backgroundColor:'white', flex: 0.5, height:10, flexDirection:'row', marginTop:20}}>
 
-              <View style={{flex:0.8, justifyContent:'center', marginLeft:20}}>
-                <Text style={{fontSize:15}}>Conta</Text>
-                <Text style={{fontSize:20, fontFamily:'comic-sans'}}>R$ 21.344,45</Text>
-              </View>
+      <View style={{ backgroundColor: 'white', flex: 0.55, flexDirection: 'column' }}>
 
-              <View style={{justifyContent:'center', flex:0.14}} >
-                <TouchableOpacity>
-                  <Image
-                    source={require('../assets/seta-direita.png')}
-                    style={{width:20, height:20}}
-                  />
-                </TouchableOpacity>
-              </View>
+        <View style={{ flexDirection: 'column', flex: 1 }}>
+
+          <View style={{ backgroundColor: 'white', flex: 0.5, height: 10, flexDirection: 'row', marginTop: 20 }}>
+
+            <View style={{ flex: 0.8, justifyContent: 'center', marginLeft: 20 }}>
+              <Text style={{ fontSize: 15 }}>Conta</Text>
+              <Text style={{ fontSize: 20, fontFamily: 'comic-sans' }}>R$ 21.344,45</Text>
+            </View>
+
+            <View style={{ justifyContent: 'center', flex: 0.14 }} >
+              <TouchableOpacity>
+                <Image
+                  source={require('../assets/seta-direita.png')}
+                  style={{ width: 20, height: 20 }}
+                />
+              </TouchableOpacity>
+            </View>
 
           </View>
 
           <View>
 
-          <View style={{marginTop:20, justifyContent:'center', marginLeft: 10}}>
-  <Text>Entrada e saida</Text>
-  <LineChart
-    data={{
-      labels: ["January", "February", "March", "April", "May", "June"],
-      datasets: [
-        {
-          data: [
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100
-          ]
-        }
-      ]
-    }}
-    width={340} // from react-native
-    height={220}
-    yAxisLabel="$"
-    yAxisSuffix="k"
-    yAxisInterval={1} // optional, defaults to 1
-    chartConfig={{
-      backgroundColor: "purple",
-      backgroundGradientFrom: "purple",
-      backgroundGradientTo: "black",
-      decimalPlaces: 2, // optional, defaults to 2dp
-      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      style: {
-        borderRadius: 16,
-         alignItems:'center',
+            <View style={{ marginTop: 20, justifyContent: 'center', marginLeft: 10 }}>
+              <Text>Entrada e saida</Text>
+              <LineChart
+                data={{
+                  labels: ["January", "February", "March", "April", "May", "June"],
+                  datasets: [
+                    {
+                      data: [
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100,
+                        Math.random() * 100
+                      ]
+                    }
+                  ]
+                }}
+                width={340} // from react-native
+                height={220}
+                yAxisLabel="$"
+                yAxisSuffix="k"
+                yAxisInterval={1} // optional, defaults to 1
+                chartConfig={{
+                  backgroundColor: "purple",
+                  backgroundGradientFrom: "purple",
+                  backgroundGradientTo: "black",
+                  decimalPlaces: 2, // optional, defaults to 2dp
+                  color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                  labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                  style: {
+                    borderRadius: 16,
+                    alignItems: 'center',
 
-      },
-      propsForDots: {
-        r: "6",
-        strokeWidth: "2",
-        stroke: "#ffa726"
-      }
-    }}
-    bezier
-    style={{
-      marginVertical: 8,
-      borderRadius: 16
-    }}
-  />
-</View>
+                  },
+                  propsForDots: {
+                    r: "6",
+                    strokeWidth: "2",
+                    stroke: "#ffa726"
+                  }
+                }}
+                bezier
+                style={{
+                  marginVertical: 8,
+                  borderRadius: 16
+                }}
+              />
+            </View>
 
-                
-        
+
+
           </View>
-        
+
         </View>
 
-        
-    
-    </View>
-    
-    <View style={{backgroundColor:'white', flex:0.2}}>
 
-        <View style={{flexDirection:'row'}}>
-          
-          <View style={{backgroundColor:'white', flex:0.7, height: 60, justifyContent:'center'}}>
-            <Text style={{marginLeft: 50, fontWeight:'bold', fontSize: 20}}>Código da TAG</Text>
+
+      </View>
+
+      <View style={{ backgroundColor: 'white', flex: 0.2 }}>
+
+        <View style={{ flexDirection: 'row' }}>
+
+          <View style={{ backgroundColor: 'white', flex: 0.7, height: 60, justifyContent: 'center' }}>
+            <Text style={{ marginLeft: 50, fontWeight: 'bold', fontSize: 20 }}>Código da TAG</Text>
           </View>
-          
-          <View style={{backgroundColor:'white',flex:0.3, height: 60, justifyContent:'center'}}>
-            <Switch 
-            onValueChange={this.toggleSwitch}
-            value={true}/>
+
+          <View style={{ backgroundColor: 'white', flex: 0.3, height: 60, justifyContent: 'center' }}>
+            <Switch
+              value={true} />
           </View>
-        </View> 
+        </View>
 
-        <View style={{backgroundColor:'rgba(74, 7, 74, 0.28)', flex:1, height: 60, justifyContent:'center', alignItems:'center', alignContent:'center'}}>
+        <View style={{ backgroundColor: 'rgba(74, 7, 74, 0.28)', flex: 1, height: 60, justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
 
-            <View>
-                  <TouchableOpacity>
-                  <Text style={{color:'black', fontWeight:'white', fontSize:20, fontWeight:'bold'}}>2342-5674-7894-3475</Text>
-                </TouchableOpacity>
-            </View>
-          
-        
-        </View>   
-    </View>
+          <View>
+            <TouchableOpacity>
+              <Text style={{ color: 'black', fontWeight: 'white', fontSize: 20, fontWeight: 'bold' }}>2342-5674-7894-3475</Text>
+            </TouchableOpacity>
+          </View>
 
-    
+
+        </View>
+      </View>
+
+
 
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-   buttonText: {
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  buttonText: {
     fontSize: 18,
     fontFamily: 'Gill Sans',
     textAlign: 'center',
@@ -177,24 +163,24 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     backgroundColor: 'transparent',
   },
-   linearGradient: {
+  linearGradient: {
     flex: 1,
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 5
   },
-  x:{
+  x: {
     shadowColor: "#000",
-shadowOffset: {
-	width: 0,
-	height: 12,
-},
-shadowOpacity: 0.58,
-shadowRadius: 16.00,
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
 
-elevation: 24,
+    elevation: 24,
   }
-	// iconTabRound: {
+  // iconTabRound: {
   //       width: 60,
   //       height: 60,
   //       borderRadius: 30,
